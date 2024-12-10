@@ -1,11 +1,12 @@
-from aiogram import Router, types
+from aiogram import Router
+from aiogram.types import Message
 from aiogram.filters.command import Command
+
 
 router = Router()
 
-
 @router.message(Command('help'))
-async def bot_help(message: types.Message):
+async def bot_help(message: Message):
     text = ("Buyruqlar: ",
             "/start - Botni ishga tushirish",
             "/help - Yordam")
