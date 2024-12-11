@@ -17,8 +17,11 @@ def sql_connection():
 
 
 def create_table():
+    if not sql_connect():
+        return False
+    
     try:
-        connection= sqlite3.connect('db.sqlite3')
+        conn = sql_connection()
         table = """ CREATE TABLE Products (
                     chat_id BIGINT NOT NULL ,
                     title TEXT NOT NULL,
@@ -27,7 +30,7 @@ def create_table():
                     price INTEGER NOT NULL,
                     soni INTEGER PRIMARY KEY NOT NULL
                 ); """
-        cursor = connection.cursor()
+        cursor = conn.cursor()
         print("databaza yaratildi")
         cursor.execute(table)
         cursor.close()
@@ -35,8 +38,8 @@ def create_table():
     except sqlite3.Error as error:
         print("hatolik", error)
     finally:
-        if connection:
-            connection.close()    
+        if conn:
+            conn.close()    
             print("sqlite o'chdi")
 # create_table()
 
