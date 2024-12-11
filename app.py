@@ -14,8 +14,9 @@ def setup_filters(dispatcher: Dispatcher) -> None:
     from filters.private_chat import ChatPrivateFilter
 
     # Chat turini aniqlash uchun klassik umumiy filtr
-    # Filtrni handlers/users/__init__ -dagi har bir routerga alohida o'rnatish mumkin
-    dispatcher.message.filter(ChatPrivateFilter(is_private=True))
+    #! Filtrni handlers/users/__init__ -dagi har bir routerga alohida o'rnatish mumkin
+
+    # dispatcher.message.filter(ChatPrivateFilter(is_private=True))
 
 
 async def setup_aiogram(dispatcher: Dispatcher, bot: Bot) -> None:
