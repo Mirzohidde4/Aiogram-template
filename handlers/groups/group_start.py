@@ -9,8 +9,7 @@ from data.config import ADMINS
 
 
 router = Router()
-router.message.filter()
 
-@router.message(CommandStart(), GroupFilter())
+@router.message(CommandStart())
 async def group_messages(message: Message):
     await message.answer(text="group")

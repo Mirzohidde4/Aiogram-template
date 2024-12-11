@@ -23,7 +23,6 @@ def setup_filters(dispatcher: Dispatcher) -> None:
 
     # Chat turini aniqlash uchun klassik umumiy filtr
     #! Filtrni handlers/users/__init__ -dagi har bir routerga alohida o'rnatish mumkin
-
     # dispatcher.message.filter(ChatPrivateFilter(is_private=True))
 
 
