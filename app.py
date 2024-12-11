@@ -9,6 +9,14 @@ def setup_handlers(dispatcher: Dispatcher) -> None:
     dispatcher.include_router(setup_routers())
 
 
+def setup_middlewares(dispatcher: Dispatcher, bot: Bot) -> None:
+    """MIDDLEWARE"""
+    from middlewares.throttling import ThrottlingMiddleware
+
+    # Spamdan himoya qilish uchun klassik ichki o'rta dastur. So'rovlar orasidagi asosiy vaqtlar 0,5 soniya
+    dispatcher.message.middleware(ThrottlingMiddleware(slow_mode_delay=0.5))    
+
+
 def setup_filters(dispatcher: Dispatcher) -> None:
     """FILTERS"""
     from filters.private_chat import ChatPrivateFilter
@@ -22,6 +30,7 @@ def setup_filters(dispatcher: Dispatcher) -> None:
 async def setup_aiogram(dispatcher: Dispatcher, bot: Bot) -> None:
     logger.info("Configuring aiogram")
     setup_handlers(dispatcher=dispatcher)
+    setup_middlewares(dispatcher=dispatcher, bot=bot)
     setup_filters(dispatcher=dispatcher)
     logger.info("Configured aiogram")    
 
