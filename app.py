@@ -19,9 +19,10 @@ def setup_middlewares(dispatcher: Dispatcher, bot: Bot) -> None:
 
 def setup_filters(dispatcher: Dispatcher) -> None:
     """FILTERS"""
-    from filters.private_chat import ChatPrivateFilter
+    # from filters.private_chat import ChatPrivateFilter
 
-    # Chat turini aniqlash uchun klassik umumiy filtr
+    #
+    #?  Chat turini aniqlash uchun klassik umumiy filtr
     #! Filtrni handlers/users/__init__ -dagi har bir routerga alohida o'rnatish mumkin
     # dispatcher.message.filter(ChatPrivateFilter(is_private=True))
 
